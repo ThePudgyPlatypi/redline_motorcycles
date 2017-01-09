@@ -14,7 +14,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.integer "quantity", :limit => 1, :default => 1
       t.string "brand"
       t.string "manufacturerPartNumber"
-      t.string "format", :default => "FixedPrice"
+      t.string "listingformat", :default => "FixedPrice"
       t.decimal "startPrice", :limit => 8
       t.decimal "buyItNowPrice", :limit => 8
       t.integer "duration", :limit => 1, :default => 30
@@ -30,17 +30,11 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.string "domesticRateTable"
       t.string "shippingType", :default => "Flat"
       # Shipping option 1
-      t.string "shippingService-1:Option", :default => "UPSGround"
-      t.decimal "shippingService-1:Cost", :limit => 8
-      t.boolean "shippingService-1:FreeShipping", :default => true
-      t.integer "shippingService-1:Priority", :default => 1, :limit => 1
-      t.decimal "shippingService-1:ShippingSurcharge", :limit => 8
-      # Shipping option 2
-      t.string "shippingService-2:Option"
-      t.decimal "shippingService-2:Cost", :limit => 8
-      t.boolean "shippingService-2:FreeShipping", :default => true
-      t.integer "shippingService-2:Priority", :default => 1, :limit => 1
-      t.decimal "shippingService-2:ShippingSurcharge", :limit => 8
+      t.string "shippingOption", :default => "UPSGround"
+      t.decimal "shippingCost", :limit => 8
+      t.boolean "shippingFreeShipping", :default => true
+      t.integer "shippingPriority", :default => 1, :limit => 1
+      t.decimal "shippingShippingSurcharge", :limit => 8
       t.integer "dispatchTimeMax", :default => 4, :limit => 1
       t.string "returnsAcceptedOption", :default => "ReturnsNotAccepted"
       t.string "refundOption"

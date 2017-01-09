@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<% @products.each do |f| %>
+  <div class="row small-up-2 large-up-4 carbonRow">
+    <div class="column column-block">
+      <p><%= link_to("#{f.title}", product_path(f.id)) %></p>
+    </div>
+  </div>
+<% end %>
+
+<%= link_to 'Edit', edit_subcategory_path(@subcategory) %> |
+<%= link_to 'Back', subcategories_path %>

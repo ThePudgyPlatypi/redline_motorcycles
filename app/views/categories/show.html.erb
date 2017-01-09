@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<% @subcategories.each do |f| %>
+  <div class="row small-up-2 large-up-4 carbonRow">
+    <div class="column column-block">
+      <p><%= link_to("#{f.subcategory_name}", subcategory_path(f.id)) %></p>
+    </div>
+  </div>
+<% end %>

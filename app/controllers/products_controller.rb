@@ -5,11 +5,39 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    @newestProducts = Product.all.order(created_at: :desc).limit(4)
+    @featuredProductID = 33
+    @featuredProduct = Product.find(@featuredProductID)
+    # make a reusable block for this
+    @condition = @featuredProduct.conditionID
+    case @condition
+    when 1000
+      @condition = "New"
+    when 1500
+      @condition = "New, Out-of-Box"
+    when 3000
+      @condition = "Used"
+    when 7000
+      @condition = "Only for Parts"
+    end
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
+    @product = Product.find(params[:id])
+    @condition = @product.conditionID
+    case @condition
+    when 1000
+      @condition = "New"
+    when 1500
+      @condition = "New, Out-of-Box"
+    when 3000
+      @condition = "Used"
+    when 7000
+      @condition = "Only for Parts"
+    end
+    @products = Product.all.limit(5)
   end
 
   # GET /products/new

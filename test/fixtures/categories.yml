@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  motorcycle: MyString
+  atv_utv: MyString
+  kymco: MyString
+
+two:
+  motorcycle: MyString
+  atv_utv: MyString
+  kymco: MyString
