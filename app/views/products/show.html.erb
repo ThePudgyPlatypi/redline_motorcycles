@@ -77,8 +77,14 @@
           <div class="small-9 columns">
             <input type="text" id="middle-label" placeholder="One fish two fish">
           </div>
-        </div>
 
+        </div>
+        <%if signed_in?%>
+          <%=link_to "", class: "button", data: {target: @cart_action, addUrl: add_to_cart_path(@product), removeUrl: remove_from_cart_path(@product)} do%>
+            <i class="fi-shopping-cart"></i>
+            <span><%=@cart_action%></span> Cart
+          <%end%>
+        <%end%>
         <a href="#" class="button large expanded">Buy Now</a>
 
         <div class="small secondary expanded button-group">

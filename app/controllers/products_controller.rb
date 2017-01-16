@@ -22,11 +22,16 @@ class ProductsController < ApplicationController
     end
   end
 
+
   # GET /products/1
   # GET /products/1.json
   def show
     @product = Product.find(params[:id])
     @condition = @product.conditionID
+    # This line uses the cart_action method dfined in the product model
+    # It grabs the current user, runs try on it to make sure that there is an id (try returns nil if no id)
+    # then it passes either "remove from" or "add to" to the button on the product view
+    @cart_action = @product.cart_action(current_user.try(:id))
     case @condition
     when 1000
       @condition = "New"
@@ -52,17 +57,17 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(product_params)
-
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
-        format.json { render :show, status: :created, location: @product }
-      else
-        format.html { render :new }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
-    end
+  #   @product = Product.new(product_params)
+  #
+  #   respond_to do |format|
+  #     if @product.save
+  #       format.html { redirect_to @product, notice: 'Product was successfully created.' }
+  #       format.json { render :show, status: :created, location: @product }
+  #     else
+  #       format.html { render :new }
+  #       format.json { render json: @product.errors, status: :unprocessable_entity }
+  #     end
+  #   end
   end
 
   # PATCH/PUT /products/1
@@ -99,4 +104,6 @@ class ProductsController < ApplicationController
     def product_params
       params.fetch(:product, {})
     end
+
+
 end

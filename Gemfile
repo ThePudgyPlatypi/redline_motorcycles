@@ -20,7 +20,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -32,11 +31,28 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+# # Use Capistrano for deployment
+# # gem 'capistrano-rails', group: :development
+
+# Foundation FOR STYLING
 gem 'foundation-rails'
+
+# Devise used for User authentication
 gem 'devise'
-gem 'gretel'
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+
+#shopping cart file system
+gem 'redis'
+gem 'hiredis'
+
+# For payments receiving stuff
+# braintree is used to securely process payments from customers via paypal
+gem 'braintree'
+# figaro keeps the merchant id's and keys hidden when uploading to things such as git
+gem 'figaro'
+# gon helps to allow variables to be passed to javascript 'the easy way'
+# using this to pass the client token to the braintree jdk so it can be sent to their servers
+# for processing
+gem 'gon'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

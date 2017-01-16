@@ -10,18 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+// = require jquery
 //= require jquery_ujs
-//= require foundation
-//= require turbolinks
+// = require foundation
 //= require_tree .
 
-$(document).on('turbolinks:load', function() {
-  $(function(){ $(document).foundation(); });
-});
-
-$('.top-bar').on('sticky.zf.stuckto:top', function(){
-  $(this).addClass('.is-stuck');
-}).on('sticky.zf.unstuckfrom:top', function(){
-  $(this).removeClass('.is-stuck');
-})
+$(function(){ $(document).foundation(); });

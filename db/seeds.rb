@@ -58,3 +58,7 @@ require 'csv'
 #   t.save
 #   puts "Product #{t.title} #{t.id} added with #{t.picURL}"
 # end
+
+
+Spree::Core::Engine.load_seed if defined?(Spree::Core)
+Spree::Auth::Engine.load_seed if defined?(Spree::Auth)
