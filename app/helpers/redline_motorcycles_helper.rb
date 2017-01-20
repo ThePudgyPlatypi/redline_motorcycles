@@ -1,0 +1,2 @@
+module RedlineMotorcyclesHelper
+end

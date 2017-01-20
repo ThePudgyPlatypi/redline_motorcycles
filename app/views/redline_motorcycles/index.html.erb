@@ -1,0 +1,158 @@
+<!-- this first div will be the background parralax picture -->
+<!--<div id="backgroundOne" class="parallax-window" data-parallax="scroll" data-image-src="images/firstBG_small-min.jpg" data-speed="0.3">
+</div>-->
+
+<!-- this div group will be the first picutre box with the logo -->
+<div class="row">
+  <div id="first_index_bg" class="columns small-12">
+    <!-- background is defined in css -->
+    <div class="columns small-8 small-centered text-center" id="firstContainer">
+      <div class="outer">
+        <div class="row1" itemscope itemtype="http://schema.org/AutomotiveBusiness">
+          <%= image_tag("Redline-Logo_small.png", alt: "Redline Motorcycles Logo") %>
+            <!-- #  <img itemprop="logo" class="responsiveImg" src="/Redline-Logo_small.png" alt="Redline Motorcycles Logo"> -->
+        </div>
+
+        <div class="row2" itemscope itemtype="http://schema.org/AutomotiveBusiness">
+            <!--<h1 class="centerHeading">Premier Motorcycle and Powersports Repair Facility</h1>-->
+            <p itemprop="telephone"><a href="tel:6092079572">(609) 207-9572</a></p>
+            <p><span itemprop="address">1831 Route 206 <br>Southampton, NJ 08088</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- FIRST CONTENT BOX -->
+  <div id="contentBox_One" class="column small-12 text-center" itemscope itemtype="http://schema.org/AutomotiveBusiness">
+    <span class="fa fa-wrench" id="leftWrench"></span>
+    <h1 class="centerHeading" itemprop="legalName">Redline Motorcycles</h1>
+    <span class="fa fa-wrench" id="rightWrench"></span>
+    <h2>Premier Motorcycle and Powersports Repair Facility</h2>
+    <p itemprop="description">Here at Redline Motorcycles we excel at getting your Motorcycle, Dirt Bike, ATV, or UTV back up and running. With more then 35 years of combine service experience, Patrick and Daniel Doyle have all the knowledge and expertise to give you piece of mind in our service. Quality work is what we strive for here at Redline Motorcycles so call us today at <a itemprop="telephone" href="tel:6092079572">(609) 207-9572</a> to schedule service. If you recieve our voicemail then please leave your name, contact phone number, and a good time to reach you and then explain what vehicle you have and what the problem is and we will return your call as soon as we can. </p>
+
+    <h3>Official <span itemprop="brand">Kymco</span> Authorized Dealer and Warranty Facility</h3>
+    <%= image_tag("KymcoBackground2_small.png", alt: "Kymco Logo") %>
+    <!-- <img class="responsiveImg" src="app/assets/images/KymcoBackground2_small.png" alt="Kymco Logo"> -->
+
+    <h3>We specialize in these brands and more!</h3>
+    <ul>
+        <li itemprop="brand">Honda</li>
+        <li itemprop="brand">Kawasaki</li>
+        <li itemprop="brand">Suzuki</li>
+        <li itemprop="brand">Yamaha</li>
+        <li itemprop="brand">Polaris</li>
+        <li itemprop="brand">Triumph</li>
+        <li itemprop="brand">Harley Davidson</li>
+        <li itemprop="brand">KTM</li>
+        <li itemprop="brand">Ducati</li>
+        <li>...</li>
+    </ul>
+
+    <div class="button">
+        <a href="tel:6092079572">
+            <span class="fa fa-comments"></span>
+        </a>
+        <p>
+            <a itemprop="telephone" href="tel:6092079572">(609) 207-9572<br>Call for quote</a>
+        </p>
+    </div>
+  </div>
+
+<!-- <div id="mBContainer" class="row">
+  <div id="movieBox" class="columns small-12">
+      <video id="video" preload="auto">
+          <source src="/app/assets/images/web_video/owners.mp4" type="video/mp4" />
+          <source src="web_video/owners.ogg" type="video/ogg" />
+          <source src="web_video/owners.webm" type="video/webm" />
+          <p>Your browser does not support video and that sucks :(</p>
+      </video>
+  </div>
+</div> -->
+
+<div id="contentBox_Two" class="row" itemscope itemtype="http://schema.org/AutomotiveBusiness">
+  <h1 class="meetTheOwners text-center">Meet the Owners</h1>
+    <aside class="left owner columns small-6">
+        <h2 itemprop="founder">Patrick Doyle</h2><!--<span class="fontawesome-stop"></span>-->
+        <p>Patrick grew up around motorcycles and ATVs, and has an undeniable passion for racing and riding all forms of both. That love of powersports led him to enroll and graduate top of his class at AMI. Having completed over 20+ years at a large Honda and Yamaha dealer as the Lead Tech and Service Manager, he now stands along side his brother as one half of Redline Motorcycles.</p>
+    </aside>
+
+    <aside class="right owner columns small-6">
+        <h2 itemprop="founder">Daniel Doyle</h2>
+        <p>Daniel is an avid outdoorsman whos blood runs on gasoline. He has a strong passion for racing whether it be on two wheels in hare scrambles or four wheels at the drag strip. He was at the top of his class while attending tech school and has also been in the industry for 20+ years. He now is the other equal half of the Redline Motorcycles team. </p>
+    </aside>
+</div>
+
+<!-- This div will be the last parralax picture -->
+<div id="second_index_bg" class="row text-center">
+  <div class="columns small-8 small-centered text-center">
+    <div class="outer">
+      <div class="row1" itemscope itemtype="http://schema.org/AutomotiveBusiness">
+        <%= image_tag("Redline-Logo_small.png", alt: "Redline Motorcycles Logo") %>
+          <!-- #  <img itemprop="logo" class="responsiveImg" src="/Redline-Logo_small.png" alt="Redline Motorcycles Logo"> -->
+      </div>
+
+      <div class="row2" itemscope itemtype="http://schema.org/AutomotiveBusiness">
+          <!--<h1 class="centerHeading">Premier Motorcycle and Powersports Repair Facility</h1>-->
+          <p itemprop="telephone"><a href="tel:6092079572">(609) 207-9572</a></p>
+          <p><span itemprop="address">1831 Route 206 <br>Southampton, NJ 08088</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- this div will be the last content box with the testimonials as well as the footer -->
+
+
+    <!-- <nav id="nav">
+        <ul class="nav_ul">
+            <li class="radius nav_li">
+                <a href="index.html">Home</a>
+            </li>
+            <li class="radius nav_li">
+                <a href="about.html">About Us</a>
+            </li>
+            <li class="radius nav_li">
+                <a href="repair.html">Repair</a>
+            </li>
+            <li class="nav_li">
+                <a href="kymco.html">Kymco</a>
+                <ul class="submenu">
+                    <li class="submenu_li">
+                        <a href="kymco.html">UTV/Side by Side</a>
+                        <ul id="UTV" class="submenu layerTwo">
+                            <li class="submenu_li_secondLayer"><a href="kymco.html#uxv700i">UXV 700i/500i</a></li>
+                            <li class="submenu_li_secondLayer"><a href="kymco.html#uxv500g">UXV 500i G</a></li>
+                            <li class="submenu_li_secondLayer"><a href="kymco.html#uxv500">UXV 500</a></li>
+                            <li class="submenu_li_secondLayer"><a href="kymco.html#uxv450i">UXV 450i</a></li>
+                        </ul>
+                    </li>
+                    <li class="submenu_li">
+                        <a href="kymco.html#atv">ATV/Quad</a>
+                        <ul id="ATV" class="submenu layerTwo">
+                            <li class="submenu_li_secondLayer">
+                                <a href="kymco.html#mxu700">MXU 700i/500i</a>
+                            </li>
+                            <li class="submenu_li_secondLayer">
+                                <a href="kymco.html#mxu500">MXU 500</a>
+                            </li>
+                            <li class="submenu_li_secondLayer">
+                                <a href="kymco.html#mxu450">MXU 450i/Maxxer</a>
+                            </li>
+                            <li class="submenu_li_secondLayer">
+                                <a href="kymco.html#mxu300">MXU 300/150</a>
+                            </li>
+                            <li class="submenu_li_secondLayer">
+                                <a href="kymco.html#mongoose">Mongoose 300/90/70</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="submenu_li">
+                        <a href="kymco.html#scooter">Scooter</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav> -->

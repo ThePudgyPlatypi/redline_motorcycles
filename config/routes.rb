@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   # root
-  root 'products#index'
+  root 'redline_motorcycles#index'
+  
+  get 'redline_motorcycles/repair'
+
+  get 'redline_motorcycles/kymco'
 
   # All the user authentication routes
   devise_for :users, path_names: { sign_in: 'login', sign_out: 'log_out', sign_up: 'register' }

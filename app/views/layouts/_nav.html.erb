@@ -1,55 +1,65 @@
 <div class="row" id="navigation">
-  <div class="column small-12">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li>
-        <%= link_to('Redline Motorcycles', products_path) %>
-      </li>
-      <li>
-        <%= link_to('Motorcycles and Parts', category_path(1)) %>
-        <ul class="menu">
-            <li>
-              <%= link_to('Engine Parts', subcategory_path(1)) %>
-            </li>
-          <!-- ... -->
-        </ul>
-      </li>
-      <li>
-        <%= link_to("ATV/UTV's and Parts", category_path(2)) %>
-        <ul class="menu">
-          <li>
-            <a href="#">Item 1A</a>
-          </li>
-          <!-- ... -->
-        </ul>
-      </li>
-      <li>
-        <%= link_to('Kymco', category_path(3)) %>
-        <ul class="menu">
-          <li>
-            <a href="#">ATV's</a>
-          </li>
-          <li>
-            <a href="#">UTV's</a>
-          </li>
-          <li>
-            <a href="#">Accessories</a>
-          </li>
-          <!-- ... -->
-        </ul>
-      </li>
-      <%if signed_in?%>
-        <li><%=link_to current_user.email, edit_user_registration_path%></li>
-        <li><%=link_to "Logout", destroy_user_session_path, method: :delete%></li>
+  <div class="title-bar" data-responsive-toggle="responsive_toggle" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle="example-menu"></button>
+    <div class="title-bar-title">Menu</div>
+  </div>
+
+  <div class="column small-12 top-bar" id="responsive_toggle">
+    <div class="top-bar-title" id="no_hover">
+        <%= link_to('/') do %>
+          <%= image_tag('RedlineLogo_redesign', alt: "Redline Motorcycles Navigation Bar Logo") %>
+        <% end %>
+    </div>
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
         <li>
-          <!-- this is supposed to show the current users shopping cart count. -->
-          <%= link_to cart_path do%>
-            My Cart (<span class="cart-count"><%=current_user.cart_count%></span>)
-          <%end%>
+          <%= link_to('Services', "/redline_motorcycles/repair") %>
         </li>
-      <%else%>
-        <li><%=link_to "Register", new_user_registration_path%></li>
-        <li><%=link_to "Login", new_user_session_path%></li>
-      <%end%>
-    </ul>
+        <% category.each do |category| %>
+          <li>
+            <%= link_to(category.category_name, category_path(category.id)) %>
+            <ul class="menu">
+              <% category.subcategories.each do |subcategory| %>
+                <li>
+                  <%= link_to(subcategory.subcategory_name, subcategory_path(subcategory.id)) %>
+                </li>
+              <% end %>
+              <!-- ... -->
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <%if signed_in?%>
+          <li>
+            <%=link_to current_user.email, edit_user_registration_path%>
+          </li>
+          <li>
+            <%=link_to "Logout", destroy_user_session_path, method: :delete%>
+          </li>
+          <li>
+            <!-- this is supposed to show the current users shopping cart count. -->
+            <%= link_to cart_path do%>
+              My Cart (<span class="cart-count"><%=current_user.cart_count%></span>)
+            <%end%>
+          </li>
+        <%else%>
+          <li>
+            <%=link_to "Register", new_user_registration_path%>
+          </li>
+          <li>
+            <%=link_to "Login", new_user_session_path%>
+          </li>
+        <%end%>
+          <li>
+            <input type="search" placeholder="Search" >
+          </li>
+          <li>
+            <button type="button" class="button">Search</button>
+          </li>
+      </ul>
+    </div>
   </div>
 </div>

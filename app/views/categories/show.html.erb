@@ -1,9 +1,10 @@
-<p id="notice"><%= notice %></p>
-
-<% @subcategories.each do |f| %>
-  <div class="row small-up-2 large-up-4 carbonRow">
+<div class="row small-up-2 medium-up-3 large-up-5 grid_position">
+  <% @subcategories.each do |f| %>
     <div class="column column-block">
-      <p><%= link_to("#{f.subcategory_name}", subcategory_path(f.id)) %></p>
-    </div>
-  </div>
-<% end %>
+       <%= link_to(subcategory_path(f.id)) do %>
+         <%= image_tag("//placehold.it/150x150") %>
+       <% end %>
+       <br><%= link_to("#{f.subcategory_name}", subcategory_path(f.id)) %>
+     </div>
+   <% end %>
+</div>
