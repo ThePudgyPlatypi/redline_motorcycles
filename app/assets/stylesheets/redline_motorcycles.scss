@@ -9,9 +9,7 @@
   width: 100%;
 }
 
-
 #contentBox_One {
-	position: relative;
 	width: 100%;
 	padding: 5%;
 	background-color: #f1f1f1;
@@ -38,17 +36,20 @@
 
 
 #contentBox_Two {
-	width: 100%;
-	padding: 5%;
+  padding: 5em;
+	// width: 100%;
+	// padding: 5%;
 	background-image: url('brushedaluminum_small-min.jpg');
 	background-size: contain;
-	// box-shadow: 0 0px 50px 30px rgba(0,0,0,0.9);
+	// // box-shadow: 0 0px 50px 30px rgba(0,0,0,0.9);
 }
 
-.meetTheOwners {
+#meetTheOwners {
+  background-color: #111111;
+  margin: 0;
+  padding: 0.25em;
 	color: white;
 	font-size: 3em;
-  margin: 20px;
 }
 
 .owner {

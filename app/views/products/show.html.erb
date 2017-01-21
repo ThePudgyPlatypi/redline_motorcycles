@@ -1,26 +1,15 @@
-<p id="notice"><%= notice %></p>
-<%= link_to 'Back', products_path %>
-<br>
-    <!-- You can now combine a row and column if you just need a 12 column row -->
-    <!-- <div class="row columns">
-      <nav aria-label="You are here:" role="navigation">
-        <ul class="breadcrumbs">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Features</a></li>
-          <li class="disabled">Gene Splicing</li>
-          <li>
-            <span class="show-for-sr">Current: </span> Cloning
-          </li>
-        </ul>
-      </nav>
-    </div> -->
+<p class="breadcrumbs">
+  <%= link_to("#{@category.category_name}", category_path(@category.id)) %>
+  &#8594
+  <%= link_to("#{@subcategory.subcategory_name}", subcategory_path(@subcategory.id))%>
+  &#8594
+  <%= link_to("#{@product.title}", product_path(@product))%>
+</p>
 
-
-
-    <!-- need to add light box or expanding image -->
-    <div class="row">
+<!-- need to add light box or expanding image -->
+    <div class="row" id="product_row">
       <div class="medium-6 columns">
-        <%= image_tag("#{@product.picURL}") %>
+        <%= image_tag("productImages/#{@product.picURL}", class: "product_main_image") %>
         <!-- make this work when you figure out multiple images -->
         <!-- <div class="row small-up-4">
           <div class="column">
@@ -77,33 +66,42 @@
           <div class="small-9 columns">
             <input type="text" id="middle-label" placeholder="One fish two fish">
           </div>
-
         </div>
+
         <%if signed_in?%>
-          <%=link_to "", class: "button", data: {target: @cart_action, addUrl: add_to_cart_path(@product), removeUrl: remove_from_cart_path(@product)} do%>
+          <%=link_to "", class: "button large expanded", data: {target: @cart_action, addUrl: add_to_cart_path(@product), removeUrl: remove_from_cart_path(@product)} do%>
             <i class="fi-shopping-cart"></i>
             <span><%=@cart_action%></span> Cart
           <%end%>
+        <%else%>
+          <%= link_to("Sign up or Login to Purchase", new_user_registration_path, class: "button large expanded") %>
         <%end%>
-        <a href="#" class="button large expanded">Buy Now</a>
-
-        <div class="small secondary expanded button-group">
-            <a class="button">Facebook</a>
-            <a class="button">Twitter</a>
-            <a class="button">Yo</a>
-          </div>
-        </div>
+      </div>
     </div>
 
-    <div class="column row">
-      <hr>
-        <div class="row medium-up-3 large-up-5">
+<hr class="hr_no_margin">
+<h3 class="red_header_full_length">Related Products</h3>
+<hr class="hr_no_margin">
+
+    <div class="column row" id="product_row_extras">
+        <div class="row small-up-2 medium-up-3 large-up-5">
           <% @products.each do |f| %>
-            <div class="column">
-              <%= image_tag("#{@product.picURL}", :class => "thumbnail") %>
-              <h5>Other Product <small><%= @product.startPrice  %></small></h5>
-              <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam.</p>
-              <a href="#" class="button hollow tiny expanded">Buy Now</a>
+            <div class="columns">
+              <%= link_to(product_path(f)) do %>
+                <%= image_tag("productImages/#{f.picURL}", :class => "thumbnail product_extra_image") %>
+              <%end%>
+              <h5><%= link_to(f.title, product_path(f)) %></h5>
+              <p><%= f.description %></p>
+              <!-- <p class="small_price">Only $<%= f.startPrice  %></p> -->
+              <%if signed_in?%>
+              <!-- would nice to make this so that it shows what one is in the cart. right now it wont say "remove from cart" even if the item is there -->
+                <%=link_to "", class: "button hollow tiny expanded", data: {target: @cart_action, addUrl: add_to_cart_path(f), removeUrl: remove_from_cart_path(f)} do%>
+                  <i class="fi-shopping-cart"></i>
+                  <span><%=@cart_action%></span> Cart
+                <%end%>
+              <%else%>
+                <%= link_to("Sign up or Login to Purchase", new_user_registration_path, class: "button hollow tiny expanded") %>
+              <%end%>
             </div>
           <% end %>
         </div>

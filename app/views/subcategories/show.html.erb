@@ -1,8 +1,13 @@
+<p class="breadcrumbs">
+  <%= link_to("#{@category.category_name}", category_path(@category.id)) %>
+  &#8594
+  <%= link_to("#{@subcategory.subcategory_name}", subcategory_path(@subcategory.id))%>
+</p>
 <div class="row small-up-2 medium-up-3 large-up-5 grid_position">
   <% @products.each do |f| %>
     <div class="column column-block">
        <%= link_to(product_path(f.id)) do %>
-         <%= image_tag("//placehold.it/150x150") %>
+         <%= image_tag("productImages/#{f.picURL}", size: 150) %>
        <% end %>
        <br><%= link_to("#{f.title}", product_path(f.id)) %>
      </div>

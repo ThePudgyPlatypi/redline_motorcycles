@@ -1,3 +1,5 @@
+<div class="row column black_footer_bar"></div>
+<div class="column row brushed_aluminum_box"></div>
 <div class="row" id="footer">
 <!-- far left footer box -->
   <div class="columns small-4">
@@ -14,7 +16,7 @@
 <!-- center footer box -->
   <div class="columns small-4">
     <div id="social">
-      <h2>Visit us on Social Media:</h2>
+      <h4>Visit us on Social Media:</h4>
       <a href="http://www.facebook.com/redlinemotorcyclesnj">
           <span class="fa fa-facebook-square"></span>
       </a>
@@ -27,22 +29,19 @@
     </div>
   </div>
 <!-- right footer box -->
-  <div class="columns small-4">
-      <div>
-          <ul>
-              <li>
-                  <a href="about.html">about us</a>
-              </li>
-              <li>
-                  <a href="repair.html">fix stuff</a>
-              </li>
-              <li>
-                  <a href="kymco.html">kymco</a>
-              </li>
-              <li>
-                  <a href="index.html">home</a>
-              </li>
-          </ul>
+  <div class="columns small-4 text-right">
+      <div id="right_footer_nav">
+        <h4>Quick Nav</h4>
+        <ul>
+            <li>
+                <a href="about.html">Service</a>
+            </li>
+            <% category.each do |category| %>
+            <li>
+              <%= link_to(category.category_name, category_path(category.id)) %>
+            </li>
+            <% end %>
+        </ul>
       </div>
   </div>
 </div>

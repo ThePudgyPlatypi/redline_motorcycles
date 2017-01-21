@@ -5,7 +5,7 @@
   </div>
 
   <div class="column small-12 top-bar" id="responsive_toggle">
-    <div class="top-bar-title" id="no_hover">
+    <div class="top-bar-title" class="no_hover">
         <%= link_to('/') do %>
           <%= image_tag('RedlineLogo_redesign', alt: "Redline Motorcycles Navigation Bar Logo") %>
         <% end %>
@@ -16,17 +16,17 @@
           <%= link_to('Services', "/redline_motorcycles/repair") %>
         </li>
         <% category.each do |category| %>
-          <li>
-            <%= link_to(category.category_name, category_path(category.id)) %>
-            <ul class="menu">
-              <% category.subcategories.each do |subcategory| %>
-                <li>
-                  <%= link_to(subcategory.subcategory_name, subcategory_path(subcategory.id)) %>
-                </li>
-              <% end %>
-              <!-- ... -->
-            </ul>
-          </li>
+        <li>
+          <%= link_to(category.category_name, category_path(category.id)) %>
+          <ul class="menu">
+            <% category.subcategories.each do |subcategory| %>
+              <li>
+                <%= link_to(subcategory.subcategory_name, subcategory_path(subcategory.id)) %>
+              </li>
+            <% end %>
+            <!-- ... -->
+          </ul>
+        </li>
         <% end %>
       </ul>
     </div>
@@ -34,10 +34,10 @@
       <ul class="dropdown menu" data-dropdown-menu>
         <%if signed_in?%>
           <li>
-            <%=link_to current_user.email, edit_user_registration_path%>
+            <%=link_to(current_user.email, edit_user_registration_path)%>
           </li>
           <li>
-            <%=link_to "Logout", destroy_user_session_path, method: :delete%>
+            <%=link_to("Logout", destroy_user_session_path, method: :delete)%>
           </li>
           <li>
             <!-- this is supposed to show the current users shopping cart count. -->
@@ -47,14 +47,14 @@
           </li>
         <%else%>
           <li>
-            <%=link_to "Register", new_user_registration_path%>
+            <%=link_to("Register", new_user_registration_path)%>
           </li>
           <li>
-            <%=link_to "Login", new_user_session_path%>
+            <%=link_to("Login", new_user_session_path)%>
           </li>
         <%end%>
           <li>
-            <input type="search" placeholder="Search" >
+            <input type="search" placeholder="Search">
           </li>
           <li>
             <button type="button" class="button">Search</button>

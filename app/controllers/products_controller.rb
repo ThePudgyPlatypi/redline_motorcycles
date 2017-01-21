@@ -6,20 +6,20 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @newestProducts = Product.all.order(created_at: :desc).limit(4)
-    @featuredProductID = 33
-    @featuredProduct = Product.find(@featuredProductID)
+    # @featuredProductID = 33
+    # @featuredProduct = Product.find(@featuredProductID)
     # make a reusable block for this
-    @condition = @featuredProduct.conditionID
-    case @condition
-    when 1000
-      @condition = "New"
-    when 1500
-      @condition = "New, Out-of-Box"
-    when 3000
-      @condition = "Used"
-    when 7000
-      @condition = "Only for Parts"
-    end
+    # @condition = @featuredProduct.conditionID
+    # case @condition
+    # when 1000
+    #   @condition = "New"
+    # when 1500
+    #   @condition = "New, Out-of-Box"
+    # when 3000
+    #   @condition = "Used"
+    # when 7000
+    #   @condition = "Only for Parts"
+    # end
   end
 
 
@@ -32,6 +32,8 @@ class ProductsController < ApplicationController
     # It grabs the current user, runs try on it to make sure that there is an id (try returns nil if no id)
     # then it passes either "remove from" or "add to" to the button on the product view
     @cart_action = @product.cart_action(current_user.try(:id))
+    @category = @product.subcategory.category
+    @subcategory = @product.subcategory
     case @condition
     when 1000
       @condition = "New"

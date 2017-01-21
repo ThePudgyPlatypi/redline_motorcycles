@@ -12,6 +12,7 @@
   def show
     @subcategory = Subcategory.find(params[:id])
     @products = @subcategory.products.all
+    @category = @subcategory.category
   end
 
   # GET /subcategories/new

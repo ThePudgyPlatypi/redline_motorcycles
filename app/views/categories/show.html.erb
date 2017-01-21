@@ -1,8 +1,9 @@
+<p class="breadcrumbs"><%= link_to("#{@category.category_name}", category_path(@category.id)) %></p>
 <div class="row small-up-2 medium-up-3 large-up-5 grid_position">
   <% @subcategories.each do |f| %>
     <div class="column column-block">
        <%= link_to(subcategory_path(f.id)) do %>
-         <%= image_tag("//placehold.it/150x150") %>
+         <%= image_tag("subcategory_pic/#{f.subcategory_picture}", size: 150) %>
        <% end %>
        <br><%= link_to("#{f.subcategory_name}", subcategory_path(f.id)) %>
      </div>
