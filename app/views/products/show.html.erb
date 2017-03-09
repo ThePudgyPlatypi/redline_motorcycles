@@ -9,7 +9,7 @@
 <!-- need to add light box or expanding image -->
     <div class="row" id="product_row">
       <div class="medium-6 columns">
-        <%= image_tag("productImages/#{@product.picURL}", class: "product_main_image") %>
+        <%= image_tag("#{@product.picURL}", class: "product_main_image") %>
         <!-- make this work when you figure out multiple images -->
         <!-- <div class="row small-up-4">
           <div class="column">
@@ -48,7 +48,7 @@
             </tr>
           </tbody>
         </table>
-        <p><%= @product.description %></p>
+        <p><%= @product.description.html_safe %></p>
 
         <!-- <label>Size
         <select>
@@ -61,10 +61,10 @@
 
         <div class="row">
           <div class="small-3 columns">
-            <label for="middle-label" class="middle">Quantity</label>
+           <p>Price</p>
           </div>
           <div class="small-9 columns">
-            <input type="text" id="middle-label" placeholder="One fish two fish">
+            <%= @product.startPrice %>
           </div>
         </div>
 
@@ -88,10 +88,10 @@
           <% @products.each do |f| %>
             <div class="columns">
               <%= link_to(product_path(f)) do %>
-                <%= image_tag("productImages/#{f.picURL}", :class => "thumbnail product_extra_image") %>
+                <%= image_tag("#{f.picURL}", :class => "thumbnail product_extra_image") %>
               <%end%>
               <h5><%= link_to(f.title, product_path(f)) %></h5>
-              <p><%= f.description %></p>
+              <p><%= f.description.html_safe %></p>
               <!-- <p class="small_price">Only $<%= f.startPrice  %></p> -->
               <%if signed_in?%>
               <!-- would nice to make this so that it shows what one is in the cart. right now it wont say "remove from cart" even if the item is there -->

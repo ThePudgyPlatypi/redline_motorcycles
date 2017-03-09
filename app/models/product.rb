@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  include AlgoliaSearch
   belongs_to :subcategory
   has_many :purchases
   has_many :users, through: :purchases
@@ -11,4 +12,16 @@ class Product < ApplicationRecord
       "Add to"
     end
   end
+
+  algoliasearch do
+    # list of attribute used to build an Algolia record
+    attribute :title, :description, :manufacturerPartNumber, :brand
+
+    # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
+    # you want to search in: here `title`, `subtitle` & `description`.
+    # You need to list them by order of importance. `description` is tagged as
+    # `unordered` to avoid taking the position of a match into account in that attribute.
+    searchableAttributes ['title', 'manufacturerPartNumber', 'brand', 'description']
+  end
+
 end

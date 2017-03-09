@@ -12,66 +12,61 @@
 
 ActiveRecord::Schema.define(version: 20170114165212) do
 
-  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "category_name"
     t.text     "category_description", limit: 65535
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
   end
 
-  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "action",                                                              default: "Add"
-    t.integer  "category",                            limit: 3
-    t.string   "title",                               limit: 80
-    t.text     "description",                         limit: 16777215
-    t.text     "conditionDescription",                limit: 65535
+  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "action",                                                    default: "Add"
+    t.integer  "category",                  limit: 3
+    t.string   "title",                     limit: 80
+    t.text     "description",               limit: 16777215
+    t.text     "conditionDescription",      limit: 65535
     t.integer  "conditionID"
-    t.string   "picURL",                              limit: 2048
-    t.integer  "quantity",                            limit: 1,                       default: 1
+    t.string   "picURL",                    limit: 2048
+    t.integer  "quantity",                  limit: 1,                       default: 1
     t.string   "brand"
     t.string   "manufacturerPartNumber"
-    t.string   "format",                                                              default: "FixedPrice"
-    t.decimal  "startPrice",                                           precision: 10
-    t.decimal  "buyItNowPrice",                                        precision: 10
-    t.integer  "duration",                            limit: 1,                       default: 30
-    t.boolean  "immediatePayRequired",                                                default: true
-    t.integer  "postalCode",                          limit: 3
-    t.string   "location",                            limit: 45
-    t.string   "galleryType",                                                         default: "Gallery"
-    t.boolean  "payPalAccepted",                                                      default: true
-    t.string   "payPalEmailAddress",                                                  default: "redlinemotorcycles@yahoo.com"
-    t.text     "paymentInstructions",                 limit: 65535
-    t.integer  "storeCategory",                       limit: 1
+    t.string   "listingformat",                                             default: "FixedPrice"
+    t.decimal  "startPrice",                                 precision: 10
+    t.decimal  "buyItNowPrice",                              precision: 10
+    t.integer  "duration",                  limit: 1,                       default: 30
+    t.boolean  "immediatePayRequired",                                      default: true
+    t.integer  "postalCode",                limit: 3
+    t.string   "location",                  limit: 45
+    t.string   "galleryType",                                               default: "Gallery"
+    t.boolean  "payPalAccepted",                                            default: true
+    t.string   "payPalEmailAddress",                                        default: "redlinemotorcycles@yahoo.com"
+    t.text     "paymentInstructions",       limit: 65535
+    t.integer  "storeCategory",             limit: 1
     t.integer  "shippingDiscountProfileID"
     t.string   "domesticRateTable"
-    t.string   "shippingType",                                                        default: "Flat"
-    t.string   "shippingService-1:Option",                                            default: "UPSGround"
-    t.decimal  "shippingService-1:Cost",                               precision: 10
-    t.boolean  "shippingService-1:FreeShipping",                                      default: true
-    t.integer  "shippingService-1:Priority",          limit: 1,                       default: 1
-    t.decimal  "shippingService-1:ShippingSurcharge",                  precision: 10
-    t.string   "shippingService-2:Option"
-    t.decimal  "shippingService-2:Cost",                               precision: 10
-    t.boolean  "shippingService-2:FreeShipping",                                      default: true
-    t.integer  "shippingService-2:Priority",          limit: 1,                       default: 1
-    t.decimal  "shippingService-2:ShippingSurcharge",                  precision: 10
-    t.integer  "dispatchTimeMax",                     limit: 1,                       default: 4
-    t.string   "returnsAcceptedOption",                                               default: "ReturnsNotAccepted"
+    t.string   "shippingType",                                              default: "Flat"
+    t.string   "shippingOption",                                            default: "UPSGround"
+    t.decimal  "shippingCost",                               precision: 10
+    t.boolean  "shippingFreeShipping",                                      default: true
+    t.integer  "shippingPriority",          limit: 1,                       default: 1
+    t.decimal  "shippingShippingSurcharge",                  precision: 10
+    t.integer  "dispatchTimeMax",           limit: 1,                       default: 4
+    t.string   "returnsAcceptedOption",                                     default: "ReturnsNotAccepted"
     t.string   "refundOption"
     t.string   "returnsWithinOption"
     t.string   "shippingCostPaidByOption"
-    t.string   "additionalDetails",                   limit: 5000,                    default: "Returns not accepted unless the fault falls on us (Redline Motorcycles). Please contact us via eBay to reconcile a dispute, and we will do our best to correct our mistake. Returns will not be accepted for buyer negligence or remorse"
-    t.string   "shippingProfileName",                 limit: 50
-    t.string   "refundProfileName",                   limit: 50
-    t.string   "paymentProfileName",                  limit: 50
-    t.boolean  "useTaxTable",                                                         default: true
-    t.datetime "created_at",                                                                                                                                                                                                                                                                                                               null: false
-    t.datetime "updated_at",                                                                                                                                                                                                                                                                                                               null: false
+    t.string   "additionalDetails",         limit: 5000,                    default: "Returns not accepted unless the fault falls on us (Redline Motorcycles). Please contact us via eBay to reconcile a dispute, and we will do our best to correct our mistake. Returns will not be accepted for buyer negligence or remorse"
+    t.string   "shippingProfileName",       limit: 50
+    t.string   "refundProfileName",         limit: 50
+    t.string   "paymentProfileName",        limit: 50
+    t.boolean  "useTaxTable",                                               default: true
+    t.datetime "created_at",                                                                                                                                                                                                                                                                                                     null: false
+    t.datetime "updated_at",                                                                                                                                                                                                                                                                                                     null: false
     t.integer  "subcategory_id"
     t.index ["subcategory_id"], name: "index_products_on_subcategory_id", using: :btree
   end
 
-  create_table "purchases", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "purchases", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "product_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
@@ -79,7 +74,7 @@ ActiveRecord::Schema.define(version: 20170114165212) do
     t.index ["product_id", "user_id"], name: "index_purchases_on_product_id_and_user_id", unique: true, using: :btree
   end
 
-  create_table "subcategories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "subcategories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "category_id"
     t.string   "subcategory_name"
     t.text     "subcategory_description", limit: 65535
@@ -89,7 +84,7 @@ ActiveRecord::Schema.define(version: 20170114165212) do
     t.index ["category_id"], name: "index_subcategories_on_category_id", using: :btree
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

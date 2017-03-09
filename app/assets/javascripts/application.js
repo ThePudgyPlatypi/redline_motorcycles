@@ -10,9 +10,30 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require algolia/v3/algoliasearch.min
 // = require jquery
 //= require jquery_ujs
 // = require foundation
 //= require_tree .
 
+
 $(function(){ $(document).foundation(); });
+
+var client = algoliasearch('9U2QDCL65T', '03739227127861168af190b1246a9d89');
+var index = client.initIndex('Product');
+//initialize autocomplete on search input (ID selector must match)
+autocomplete('#aa-search-input',
+{ hint: false }, {
+  source: autocomplete.sources.hits(index, {hitsPerPage: 5}),
+  //value to be displayed in input control after user's suggestion selection
+  displayKey: 'name',
+  //hash of templates used when rendering dataset
+  templates: {
+      //'suggestion' templating function used to render a single suggestion
+      suggestion: function(suggestion) {
+        return '<span>' +
+          suggestion._highlightResult.name.value + '</span><span>' +
+          suggestion._highlightResult.team.value + '</span>';
+      }
+    }
+  });
