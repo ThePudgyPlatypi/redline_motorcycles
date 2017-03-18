@@ -16,24 +16,24 @@
 // = require foundation
 //= require_tree .
 
-
 $(function(){ $(document).foundation(); });
 
-var client = algoliasearch('9U2QDCL65T', '03739227127861168af190b1246a9d89');
+// right now this doesnt work
+var client = algoliasearch("9U2QDCL65T", "b591d4f9c48001c34d4ac7276f0f93c8");
 var index = client.initIndex('Product');
 //initialize autocomplete on search input (ID selector must match)
 autocomplete('#aa-search-input',
 { hint: false }, {
-  source: autocomplete.sources.hits(index, {hitsPerPage: 5}),
-  //value to be displayed in input control after user's suggestion selection
-  displayKey: 'name',
-  //hash of templates used when rendering dataset
-  templates: {
-      //'suggestion' templating function used to render a single suggestion
-      suggestion: function(suggestion) {
-        return '<span>' +
-          suggestion._highlightResult.name.value + '</span><span>' +
-          suggestion._highlightResult.team.value + '</span>';
-      }
+    source: autocomplete.sources.hits(index, {hitsPerPage: 5}),
+    //value to be displayed in input control after user's suggestion selection
+    displayKey: 'name',
+    //hash of templates used when rendering dataset
+    templates: {
+        //'suggestion' templating function used to render a single suggestion
+        suggestion: function(suggestion) {
+          return '<span>' +
+            suggestion._highlightResult.name.value + '</span><span>' +
+            suggestion._highlightResult.team.value + '</span>';
+        }
     }
-  });
+});
